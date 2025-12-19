@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Mahasiswa</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: radial-gradient(circle at bottom, #0d1b2a, #000);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ===== BACKGROUND STARS ===== */
+        .stars,
+        .stars2,
+        .stars3 {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-repeat: repeat;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            animation: moveStars 100s linear infinite;
+        }
+
+        .stars {
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+        }
+
+        .stars2 {
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+            animation-duration: 200s;
+            opacity: 0.5;
+        }
+
+        .stars3 {
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+            animation-duration: 300s;
+            opacity: 0.3;
+        }
+
+        @keyframes moveStars {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 10000px 10000px;
+            }
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.5em;
+            color: #8ec5ff;
+            text-shadow: 0 0 10px #8ec5ff;
+        }
+
+        nav a {
+            margin-left: 20px;
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: #8ec5ff;
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
+            box-shadow: 0 0 10px #8ec5ff;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #8ec5ff;
+            text-shadow: 0 0 10px #8ec5ff;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 2s ease;
+        }
+
+        .profile {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid #8ec5ff;
+            box-shadow: 0 0 25px #8ec5ff;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .profile:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px #8ec5ff;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            text-shadow: 0 0 15px #8ec5ff;
+        }
+
+        .hero p {
+            color: #bcdcff;
+        }
+
+        /* ===== CARD ===== */
+        .card {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(142, 197, 255, 0.2);
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #8ec5ff;
+            text-shadow: 0 0 10px #8ec5ff;
+        }
+
+        .card p {
+            line-height: 1.8;
+            color: #e0ecff;
+            margin-bottom: 15px;
+        }
+
+        /* ===== GRID ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .item {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #8ec5ff;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-links a {
+            padding: 12px 25px;
+            border: 1px solid #8ec5ff;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: #8ec5ff;
+            color: black;
+            box-shadow: 0 0 20px #8ec5ff;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">YURNALIS</div>
+        <nav>
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang Saya</a>
+            <a href="#hobi">Hobi</a>
+            <a href="#makanan">Makanan</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <img src="YURNALIS.jpg" alt="Foto Profil" class="profile">
+        <h1>YURNALIS</h1>
+        <p>Mahasiswa Informatika</p>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="card">
+        <h2>Tentang Saya</h2>
+        <p>
+        <section id="tentang" class="card">
+            <h2>Tentang Saya</h2>
+            <p>
+                Halo! Perkenalkan, nama saya <strong>Yurnalis</strong>.
+                Saya seorang mahasiswa jurusan Informatika yang memiliki ketertarikan besar dalam bidang pengembangan
+                web dan desain antarmuka.
+                Sejak awal menekuni dunia teknologi, saya selalu tertarik pada bagaimana sebuah ide kreatif dapat
+                diwujudkan menjadi sebuah website atau aplikasi yang tidak hanya fungsional tetapi juga memiliki
+                tampilan yang estetis.
+            </p>
+            <p>
+                Dalam perjalanan belajar saya, saya mempelajari HTML, CSS, dan JavaScript untuk membangun website yang
+                interaktif dan responsif.
+                Selain itu, saya juga mengasah kemampuan desain UI/UX untuk membuat antarmuka yang nyaman dan menarik
+                bagi pengguna. Saya percaya bahwa pengalaman pengguna yang baik adalah salah satu hal terpenting dalam
+                setiap proyek digital.
+            </p>
+            <p>
+                Di luar dunia coding, saya memiliki berbagai hobi yang membantu saya tetap kreatif dan inspiratif. Saya
+                suka membaca buku tentang teknologi, desain, dan psikologi kreatif, menonton film atau anime untuk
+                mendapatkan perspektif baru, serta mencoba berbagai proyek desain grafis di waktu luang.
+                Saya percaya bahwa kreativitas tidak hanya muncul dari belajar, tetapi juga dari pengalaman dan
+                pengamatan sehari-hari.
+            </p>
+            <p>
+                Motto hidup saya adalah: <em>\"Kreativitas dan konsistensi adalah kunci untuk menghasilkan karya yang
+                    bermakna.\"</em>
+                Dengan portofolio ini, saya ingin membagikan karya-karya terbaik saya, menunjukkan perjalanan belajar
+                saya, serta membuka kesempatan untuk berkolaborasi dengan individu atau tim yang memiliki visi dan
+                semangat yang sama.
+            </p>
+        </section>
+    </section>
+
+    <!-- Hobi -->
+    <section id="hobi" class="card">
+        <h2>Hobi</h2>
+        <div class="grid">
+            <div class="item">🎮 Bermain</div>
+            <div class="item">🎧 Musik</div>
+            <div class="item">📸 Fotografi</div>
+            <div class="item">💻 Coding</div>
+        </div>
+    </section>
+
+    <!-- Makanan -->
+    <section id="makanan" class="card">
+        <h2>Makanan Kesukaan</h2>
+        <div class="grid">
+            <div class="item">Bakso</div>
+            <div class="item">Mie Ayam</div>
+            <div class="item">Seblak</div>
+            <div class="item">Ayam Geprek</div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="card">
+        <h2>Kontak</h2>
+        <div class="contact-links">
+            <a href="mailto:yurnalisyurnalis993@gmail.com">📧 Email</a>
+            <a href="https://www.instagram.com/thisanonymous_girl?igsh=OW9zbHV3dThnOHUx" target="_blank">📷
+                Instagram</a>
+            <a href="https://wa.me/qr/FVSSFR6T5A2DF1" target="_blank">📱 WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Yurnalis | Portofolio Mahasiswa</p>
+    </footer>
+
+</body>
+
+</html>
